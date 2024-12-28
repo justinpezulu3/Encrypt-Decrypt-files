@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Crypto</title>
+    <link rel="stylesheet" href="styles.css"/>
+
+</head>
+<body>
+    <div class="container">
+       <div class="container">
+        <div class="menu-bar">
+            <button class="menu-button" onclick="showHelp()">Help</button>
+            <button class="menu-button" onclick="showAbout()">About</button>
+        </div>
+        <h1>Secure File Crypto</h1>
+
+        <div class="main-content">
+            <div class="input-group">
+                <input type="file" id="fileInput">
+                <small id="fileSizeWarning" style="color: red; display: none;">File size exceeds the 5 MB limit.</small>
+            </div>
+
+            <div class="input-group">
+                <div style="display: flex; align-items: center;">
+                    <input type="password" id="password" placeholder="Enter password">
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <div id="passwordStrength"></div>
+            </div>
+
+            <div>
+                <button onclick="encryptFile()" id="encryptBtn" disabled>Encrypt</button>
+                <button onclick="decryptFile()" id="decryptBtn" disabled>Decrypt</button>
+            </div>
+
+            <!-- Download Button -->
+            <div id="downloadSection" style="margin-top: 1rem; display: none;">
+                <button id="downloadButton">Download File</button>
+            </div>
+
+            <div id="status"></div>
+        </div>
+    </div>
+        <!-- Help Modal -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('helpModal')">&times;</span>
+            <h2>Help</h2>
+            <p>1. Select a file using the file input</p>
+            <p>2. Enter a strong password</p>
+            <p>3. Click Encrypt to secure your file or Decrypt to recover it</p>
+            <p>4. The processed file can be downloaded by clicj download button</p>
+            <p>Note: Keep your password safe! Files cannot be recovered without it.</p>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>About</h2>
+            <p>Secure File Crypto is a browser-based file encryption tool.</p>
+            <p>Features:</p>
+            <p>- Client-side encryption (files never leave your device)</p>
+            <p>- AES-256 encryption</p>
+            <p>- Works offline</p>
+            <p>Version 1.0</p>
+        </div>
+    </div>
+
+
+    <script src = "script.js">
+    </script>
+</body>
+</html>
